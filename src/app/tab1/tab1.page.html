@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Nick Russell - Práctica
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,53 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Nick - Russell</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Calcular Impuestos</ion-card-subtitle>
+      <ion-card-title>IVA - IT - Utilidad</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <img src="{{imagen}}" alt="" srcset="">
+
+      <ion-item>
+        <ion-label>Cambiar Valores</ion-label>
+        <ion-toggle (ionChange) = "changeCheckBox()"></ion-toggle>
+
+      </ion-item>
+
+      <div class="container-datos_input" [hidden]="isTermsAccepted">
+      <ion-item>
+        <ion-input [(ngModel)]='inputiva' type='number' value = "0" placeholder='Impuesto al Valor Agregado %' ></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-input [(ngModel)]='inputit' type='number' value = "0" placeholder='Impuestos a las Transacciones % ' ></ion-input>
+      </ion-item>
+      
+      </div>
+
+      <div class="container-monto">
+        <ion-item>
+          <ion-input [(ngModel)]='Monto' type='number' value = "0" placeholder='Ingrese Monto a Calcular' (keyup)="calcular()" ></ion-input>
+        </ion-item>
+        <div class="resultado">          
+          IVA: {{this.cifraiva}}
+        </div>
+        <div class="resultado">          
+          IT: {{this.cifrait}}
+        </div>
+        <div class="resultado">          
+          Utilidad: {{this.cifraut}}
+        </div>
+      </div>
+
+
+
+    </ion-card-content>
+  </ion-card>
 </ion-content>
